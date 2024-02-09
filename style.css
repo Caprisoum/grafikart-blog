@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.cardo {
+  font-family: 'Cardo', serif;
+}
+
+.monteserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+/* du texte sélectionné sera jaune sur fond rouge*/
+::-moz-selection {
+  color: gold;
+  background-color: red;
+}
+
+::selection {
+  color: gold;
+  background-color: red;
+}
+
 * {
   box-sizing: border-box;
 }
 
-.body html {
+html.body {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.87);
+  font-family: 'Cardo', serif;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   margin: 0;
-  font-weight: 500;
-  background: #fbfbfb;
+  font-weight: 400;
 }
 
 .topbar {
@@ -120,12 +141,22 @@
   height: 1px;
   margin: 50px 0;
 }
+
 .article {
   overflow: hidden;
   display: flex;
   gap: 0 10px;
   min-height: 203px;
   max-height: 203px;
+  margin: 10px;
+}
+
+.article {
+  perspective: 500px;
+}
+
+.article-img {
+  transform: translate3d(0, 0, -400px);
 }
 
 .article a {
@@ -137,18 +168,13 @@
   text-decoration: underline;
 }
 
-.article img {
-  width: auto;
-  height: 203px;
-}
-
 .article-date {
   font-weight: 300px;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 5px;
 }
 
-.artcile-title {
+.article-title {
   font-size: 2.25rem;
   line-height: 1.1;
   font-family: 'Cardo', serif;
@@ -163,4 +189,50 @@
 
 .footer {
   clear: both;
+}
+
+.article-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: black;
+}
+
+blockquote {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+}
+
+blockquote::before {
+  content: '“';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 60px;
+  line-height: 1.4rem;
+}
+
+blockquote::after {
+  content: '”';
+  position: absolute;
+  bottom: -26px;
+  right: 5px;
+  font-size: 60px;
+  line-height: 1.4rem;
+}
+
+.sidebar li a::after {
+  content: attr(data-count);
+  float: right;
+  background: gray;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
