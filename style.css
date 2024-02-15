@@ -265,16 +265,15 @@ blockquote::after {
 }
 
 @media screen and (max-width: 740px) {
-  .container {
-    padding: 0 20px;
-  }
   .article {
-    padding-left: 0;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
   }
-  .article-img {
-    position: static;
-    margin-bottom: 1rem;
+
+  .article-img img {
     width: 100%;
-    display: block;
+    max-height: 250px;
+    object-fit: cover;
   }
 }
